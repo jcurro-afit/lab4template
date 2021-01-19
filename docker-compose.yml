@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  lab4:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: develop
+    environment:
+      DISPLAY:
+    image: lab4:yourname
+    # set user to your user id which is usually 1000:1000 to check you user id run `echo $(id -u):$(id -g)`
+    user: 1000:1000
+    volumes:
+      # passing through this file allows opening windows from the container in your host computer
+      - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
+      # pass the passwd file so it can know who user 1000 is
+      - "/etc/passwd:/etc/passwd"
+      # pass through data folder
+      - "/opt/data:/opt/data"
+      # pass through the .keras folder
+      - "/opt/data/.keras:/tmp/.keras"
+      # mount our project in the container
+      - ".:/opt/project"
+    # set our working directory to the project
+    working_dir: /opt/project
+    # run the lab as our command
+    command: python3 src/lab4.py
