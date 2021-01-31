@@ -24,7 +24,7 @@ Our baseline will be a coin flip. Remember a coin flip should get accuracy of 50
 Also in this section have python print what the accuracy would be if we always guessed `not cat` for this dataset.
 
 ## Step 3 Prepare out Data
-We want to remember to normalize the pixels to values between 0 and 1. We are going to keep the images as images this time and not flatten them. Thus we will have images with shape `32 x 32 x 1`.
+We want to remember to normalize the pixels values. We are going to keep the images as images this time and not flatten them. Thus we will have images with shape `32 x 32 x 3`.
 
 We also need to change the output to be cat or not cat. Here are the class labels:
 ```python
