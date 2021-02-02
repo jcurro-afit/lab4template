@@ -7,6 +7,7 @@ services:
       target: develop
     environment:
       DISPLAY:
+      TF_FORCE_GPU_ALLOW_GROWTH: 'true'
     image: lab4:yourname
     # set user to your user id which is usually 1000:1000 to check you user id run `echo $(id -u):$(id -g)`
     user: 1000:1000
@@ -24,4 +25,6 @@ services:
     # set our working directory to the project
     working_dir: /opt/project
     # run the lab as our command
-    command: python3 src/lab4.py
+    command:
+      - python3
+      - src/lab4.py
