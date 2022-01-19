@@ -119,6 +119,10 @@ def main():
                           title='Normalized confusion matrix')
     plt.show()
 
+    # comment on your recall statistic for the cat class in the final model you made
+
+    # Retrain your model with the weighting and add a comment on the cat recall statistic.
+
 
 if __name__ == "__main__":
     main()
