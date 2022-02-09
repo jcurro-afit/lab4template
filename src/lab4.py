@@ -5,6 +5,7 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 import sklearn.metrics
+import tensorflow as tf
 from tensorflow.keras.callbacks import TensorBoard
 from tensorflow.keras.datasets import cifar10
 from tensorflow.keras.layers import Input, Dense, Conv2D, GlobalAveragePooling2D
@@ -33,6 +34,8 @@ def get_data_with_preprocessing(cat_indices):
 
 
 def main():
+    print("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU')))
+
     cat_indices = [3]
 
     (x_train, y_train_cats), (x_test, y_test_cats) = get_data_with_preprocessing(cat_indices)
